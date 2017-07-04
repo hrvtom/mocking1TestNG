@@ -9,7 +9,7 @@ public class RegularTest {
 	private RegularClass instance = null;
 
 	@Test
-	public void test1() {
+	public void mockRegularScopeTest() {
 		final String expected = "Expected String";
 		instance = Mockito.mock(RegularClass.class);
 		Mockito.doReturn(expected).when(instance).Echo(Mockito.anyString());
@@ -17,7 +17,7 @@ public class RegularTest {
 		Assert.assertEquals(instance.Echo("Song"), expected);
 	}
 
-	@Test(dependsOnMethods = { "test1" })
+	@Test(dependsOnMethods = { "mockRegularScopeTest" })
 	public void test2() {
 		final String expected = "Expected String";
 
