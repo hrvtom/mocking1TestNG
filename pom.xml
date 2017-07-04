@@ -6,6 +6,10 @@
   <artifactId>powermockito-testng</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
+  <properties>
+  	  <maven.surefire.version>2.19.1</maven.surefire.version>
+  </properties>
+  
   <dependencies>
 	<dependency>
 		<groupId>org.testng</groupId>
@@ -43,4 +47,40 @@
 	</dependency>
 	
   </dependencies>
+  
+   <!-- 
+ In many cases, if the Maven packages are well defined, Maven can handle the transitive dependencies nicely.
+ But it is always better to make sure exactly what packages are added to the Maven classpath.
+ This is the reason why package exclusions are used in the dependency declaration of the "powermock-module-junit4" and
+ "powermock-module-testng" packages to avoid potential version inconsistencies and confusions.
+  -->
+  
+  <build>
+	  <plugins>
+	  	<plugin>
+	  	    <groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-surefire-plugin</artifactId>
+			<version>${maven.surefire.version}</version>
+    
+			<configuration>
+				<properties>
+				<property>
+					<name>listener</name>
+					<value>org.song.example.MyRunListener</value>
+				</property>
+				</properties>
+    
+				<systemPropertyVariables>
+					<P1>P1 value</P1>
+					<P2>P2 value</P2>
+				</systemPropertyVariables>
+			</configuration>
+	  	
+	  	</plugin>
+	  </plugins>
+  </build>
+      <!-- 
+  
+     -->
+  
 </project>
