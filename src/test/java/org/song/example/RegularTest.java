@@ -18,7 +18,7 @@ public class RegularTest {
 	}
 
 	@Test(dependsOnMethods = { "mockRegularScopeTest" })
-	public void test2() {
+	public void mockRegularScopeTest2() {
 		final String expected = "Expected String";
 
 		Assert.assertEquals(instance.Echo("Song"), expected);
