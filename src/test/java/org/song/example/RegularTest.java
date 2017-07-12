@@ -8,6 +8,10 @@ public class RegularTest {
 
 	private RegularClass instance = null;
 
+	/*
+	 * The scope of Regular Mockito Mocks
+	 */
+
 	@Test
 	public void mockRegularScopeTest() {
 		final String expected = "Expected String";

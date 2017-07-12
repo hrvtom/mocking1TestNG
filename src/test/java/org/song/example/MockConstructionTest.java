@@ -29,4 +29,8 @@ public class MockConstructionTest extends PowerMockTestCase {
 		Assert.assertEquals(student.getMathScore(), expectedScore);
 	}
 
+	// In the "@PrepareForTest" annotation, we need to specify the class where the "new" object construction happens,
+	// not the class being constructed
+	// The call to the method "PowerMockito.whenNew()" can alter the object construction,
+	// so the construction process can return an object mock to the caller
 }
